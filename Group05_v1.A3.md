@@ -17,7 +17,7 @@ Our API offers real time weather information for locations within Manitoba. Give
 ## Description of Resources (formatted as JSON)  
 
 ## Sample Request with Sample Response  
-###Sample Request
+### Sample Request
 1. Temperature:  
  ```https://winterpeg.com/temperature?cityName=Winnipeg&datetime=1925-09-12::15:09:29```
 2. Precipitation:  
@@ -25,7 +25,7 @@ Our API offers real time weather information for locations within Manitoba. Give
 3.  Sunrise and sunset time:  
  ```https://winterpeg.com/sunrise-sunset?cityName=Winnipeg&date=1999-09-09```  
  
-###Sample Response
+### Sample Response
 1. Temperature:
 ```
 {
