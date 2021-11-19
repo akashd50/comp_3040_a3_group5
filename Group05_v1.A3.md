@@ -5,11 +5,11 @@ Our API offers real time weather information for locations within Manitoba. Give
 
 ## List of Endpoints with Parameters  
  1. Temperature:  
- ```https://winterpeg.com/temperature/{cityName}/{datetime}/```
+ ```https://winterpeg.com/temperature?cityName={city_name_string}&datetime={date_time_string}```
  2. Precipitation:  
- ```https://winterpeg.com/precipitation/{cityName}/{datetime}/```
+ ```https://winterpeg.com/precipitation?cityName={city_name_string}&datetime={date_time_string}```
  3.  Sunrise and sunset time:  
- ```https://winterpeg.com/sunrise-sunset/{cityName}/{date}/```
+ ```https://winterpeg.com/sunrise-sunset?cityName={city_name_string}&date={date_string}```
  ### Parameters:
   - cityName: Name of the city that you want to get information from (type: String)
   - datetime: YYYY-MM-DD::HH:MM:SS format (type: String)
@@ -17,7 +17,7 @@ Our API offers real time weather information for locations within Manitoba. Give
 ## Description of Resources (formatted as JSON)  
 
 ## Sample Request with Sample Response  
-### Sample Request
+###Sample Request
 1. Temperature:  
  ```https://winterpeg.com/temperature?cityName=Winnipeg&datetime=1925-09-12::15:09:29```
 2. Precipitation:  
@@ -25,7 +25,7 @@ Our API offers real time weather information for locations within Manitoba. Give
 3.  Sunrise and sunset time:  
  ```https://winterpeg.com/sunrise-sunset?cityName=Winnipeg&date=1999-09-09```  
  
-### Sample Response
+###Sample Response
 1. Temperature:
 ```
 {
