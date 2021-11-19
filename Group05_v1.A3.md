@@ -1,4 +1,4 @@
-# comp_3040_a3_group5
+# Manitoba weather API (Winterpeg)
 
 ## API Description  
 Our API offers real time weather information for locations within Manitoba. Given a location name, you can access temperature, precipitation, sunrise and sunset times.
