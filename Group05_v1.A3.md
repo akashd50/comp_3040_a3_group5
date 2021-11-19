@@ -15,7 +15,30 @@ Our API offers real time weather information for locations within Manitoba. Give
   - datetime: YYYY-MM-DD::HH:MM:SS format (type: String)
   - date: YYYY-MM-DD format (type: String)
 ## Description of Resources (formatted as JSON)  
-
+1. Temperature:
+```
+{
+ "temperature": Temperature in Celsius,
+ "wind-speed": Wind speed in km/h,
+ "wind-chill": Feels like temperature in Celsius
+}
+```
+2. Precipitation:
+```
+{
+ "precipitation": Rain or snow,
+ "rainfall": In mm,
+ "snowfall": In mm,
+ "humidity": A percentage from 0-100
+}
+```
+3. Sunrise and sunset time:
+```
+{
+"sunrise": CST unadjusted for Daylight Savings Time,
+"sunset": CST unadjusted for Daylight Savings Time
+}
+```
 ## Sample Request with Sample Response  
 ### Sample Request
 1. Temperature:  
@@ -30,7 +53,7 @@ Our API offers real time weather information for locations within Manitoba. Give
 ```
 {
  "temperature": "-1 C",
- "wind-speed": "30 mph",
+ "wind-speed": "30 km/h",
  "wind-chill": "56 C"
 }
 ```
