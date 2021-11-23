@@ -1,75 +1,91 @@
-# Manitoba weather API (Winterpeg)
+# Winterpeg (Manitoba Weather API)
 
 ## API Description  
-Our API offers real time weather information for locations within Manitoba. Given a location name, you can access temperature, precipitation, sunrise and sunset times.
+Our API provides real time weather information for any named location within the Canadian province of Manitoba. With simply a city or town name, the user will receive corresponding temperature, precipitation, and even sunrise and sunset times.
 
 ## List of Endpoints with Parameters  
- 1. Temperature:  
- ```https://winterpeg.com/temperature?cityName={city_name_string}&datetime={date_time_string}```
- 2. Precipitation:  
- ```https://winterpeg.com/precipitation?cityName={city_name_string}&datetime={date_time_string}```
- 3.  Sunrise and sunset time:  
- ```https://winterpeg.com/sunrise-sunset?cityName={city_name_string}&date={date_string}```
- ### Parameters:
-  - cityName: Name of the city that you want to get information from (type: String)
-  - datetime: YYYY-MM-DD::HH:MM:SS format (type: String)
-  - date: YYYY-MM-DD format (type: String)
-## Description of Resources (formatted as JSON)  
+1. Get /temperature  
+```https://winterpeg.com/temperature?location={location_name_string}&date={date_string}&time={time_string}```  
+Get the temperature in Celsius at provided location.
+
+2. Get /precipitation  
+```https://winterpeg.com/precipitation?location={location_name_string}&date={date_string}&time={time_string}```  
+Get precipitation amounts in mm at provided location.
+
+3. Get /sunrisesunset  
+```https://winterpeg.com/sunrisesunset?location={location_name_string}&date={date_string}```  
+Get sunrise and sunset times in UTC-6 unadjusted for Daylight Savings Time (DST) at provided location.
+
+#### Parameters
+- location: name of the city or town for which the user wishes to obtain weather information
+- date: YYYY-MM-DD format (type: String)
+- time: HH:MM:SS format (type: String)
+
+
+## Description of Resources  
+*formatted as JSON*  
+
 1. Temperature:
 ```
 {
- "temperature": Temperature in Celsius,
- "wind-speed": Wind speed in km/h,
- "wind-chill": Feels like temperature in Celsius
+ "temperature": Measured at ground level in Celsius,
+ "wind-speed": Measured at 2 metres above ground level in km/h,
+ "wind-chill": Measured at 2 metres above ground level in Celsius
 }
 ```
+
 2. Precipitation:
 ```
 {
- "precipitation": Rain or snow,
- "rainfall": In mm,
- "snowfall": In mm,
- "humidity": A percentage from 0-100
+ "rainfall": Accumulated measurement in the previous 12 hours in mm,
+ "snowfall": Accumulated measurement in the previous 12 hours in mm,
+ "humidity": Prevailing measurement in percentage (0-100)
 }
 ```
-3. Sunrise and sunset time:
+
+3. Sunrise and Sunset:
 ```
 {
-"sunrise": CST unadjusted for Daylight Savings Time,
-"sunset": CST unadjusted for Daylight Savings Time
+"sunrise": Daily UTC-6 unadjusted for DST in 24 hour HH:MM format,
+"sunset": Daily UTC-6 unadjusted for DST in 24 hour HH:MM format
 }
 ```
+
 ## Sample Request with Sample Response  
-### Sample Request
+
+#### Request
 1. Temperature:  
- ```https://winterpeg.com/temperature?cityName=Winnipeg&datetime=1925-09-12::15:09:29```
+```https://winterpeg.com/temperature?location=Winnipeg&date=1925-09-12&time=15:09:29```  
+
 2. Precipitation:  
- ```https://winterpeg.com/temperature?cityName=Winnipeg&datetime=1925-09-12::15:09:29```
-3.  Sunrise and sunset time:  
- ```https://winterpeg.com/sunrise-sunset?cityName=Winnipeg&date=1999-09-09```  
- 
-### Sample Response
+```https://winterpeg.com/precipitation?location=Brandon&date=2001-09-11&time=08:10:59```  
+
+3. Sunrise and sunset time:  
+```https://winterpeg.com/sunrisesunset?location=Gimli&date=2020-03-13```  
+
+#### Response
 1. Temperature:
 ```
 {
- "temperature": "-1 C",
- "wind-speed": "30 km/h",
- "wind-chill": "56 C"
+ "temperature": "-50 C",
+ "wind-speed": "5 km/h",
+ "wind-chill": "-55 C"
 }
 ```
+
 2. Precipitation:
 ```
 {
- "precipitation": "5 mm",
- "rainfall": "2 mm",
- "snowfall": "8 mm",
- "humidity": "90%"
+ "rainfall": "0 mm",
+ "snowfall": "2 mm",
+ "humidity": "15%"
 }
 ```
-3. Sunrise and sunset time:
+
+3. Sunrise and Sunset:
 ```
 {
-"sunrise": "7:27:02",
-"sunset": "17:05:55"
+"sunrise": "07:27",
+"sunset": "18:45"
 }
 ```
